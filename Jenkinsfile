@@ -11,8 +11,7 @@ node{
   
   stage('Deploy to Tomcat'){
   
-    sshagent(['tomcat']) {
-    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.21.110:/home/ec2-user/deepa/tomcat/webapps'
+  deploy adapters: [tomcat9(credentialsId: 'fa33aaf1-c0e4-42d6-a339-8f965b6b5164', path: '', url: 'http://52.66.225.247:8081/')], contextPath: 'JenkinsWar1-0.0.1-SNAPSHOT', war: '**/*.war'
 }
   }
 }
