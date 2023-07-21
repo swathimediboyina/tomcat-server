@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-    git ''
+    git 'https://github.com/Ramapuram-Deepa/tomcat-server.git'
   }
   stage('compile-package'){
     // Get maven home path
