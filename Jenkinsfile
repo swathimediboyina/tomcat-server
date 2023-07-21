@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-    git 'https://github.com/BairaboinaVyshnavi/Tomcatserver.git'
+    git ''
   }
   stage('compile-package'){
     // Get maven home path
@@ -12,7 +12,7 @@ node{
   stage('Deploy to Tomcat'){
   
     sshagent(['tomcat-dev']) {
-    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.6.50:/opt/apache-tomcat-10.1.11/webapps'
+    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.21.110:/home/ec2-user/deepa/tomcat'
 }
   }
 }
